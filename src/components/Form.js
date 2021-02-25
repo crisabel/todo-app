@@ -2,16 +2,18 @@ import React from "react";
 
 const Form = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
     const inputTextHandler = (event) => {
-        setInputText(event.target.value);
+        setInputText(event.target.value); //setInputText established in STATE in App.js
     };
 
     const submitTodoHandler = (event) => {
-        event.preventDefault();
+        event.preventDefault(); //to prevent refreshing the page after each submit
+        // spread operators carries over existing todos and 
         setTodos([
             ...todos, {text: inputText, completed: false, id: Math.random() * 1000 },
-        ]);
+        ]); 
         setInputText("");
     };
+    
     const statusHandler = (event) => {
         setStatus(event.target.value);
     }
